@@ -1,0 +1,46 @@
+name: Scheduled Evaluation
+
+on:
+  schedule:
+    # Every day at 06:00 UTC
+    - cron: "0 6 * * *"
+  workflow_dispatch:
+    inputs:
+      dataset:
+        description: "Path to a JSON dataset of cases to evaluate"
+        required: false
+        default: "examples/data/rag_sample.json"
+
+jobs:
+  evaluate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+          cache: "pip"
+
+      - name: Install dependencies
+        run: pip install -e .
+
+      - name: Run evaluation pipeline
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          LLM_JUDGE_PROVIDER: ${{ secrets.OPENAI_API_KEY && 'openai' || 'heuristic' }}
+        run: |
+          python examples/evaluate_rag.py \
+            --dataset "${{ github.event.inputs.dataset || 'examples/data/rag_sample.json' }}" \
+            --report-dir reports \
+            --fail-under 0.5
+
+      - name: Upload report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: evaluation-report
+          path: reports/
+          retention-days: 30

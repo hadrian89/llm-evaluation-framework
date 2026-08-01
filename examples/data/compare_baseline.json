@@ -1,0 +1,28 @@
+{
+  "cases": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "The capital of France is Paris.",
+      "contexts": ["Paris is the capital and most populous city of France."],
+      "ground_truth": "Paris is the capital of France.",
+      "latency_ms": 900,
+      "cost_usd": 0.004
+    },
+    {
+      "question": "What is the boiling point of water at sea level?",
+      "answer": "Water boils at 300 degrees Celsius at sea level.",
+      "contexts": ["At sea level, water boils at 100 degrees Celsius (212 degrees Fahrenheit)."],
+      "ground_truth": "Water boils at 100 degrees Celsius at sea level.",
+      "latency_ms": 1400,
+      "cost_usd": 0.006
+    },
+    {
+      "question": "What currency is used in Japan?",
+      "answer": "The currency is the Japanese Yen. Contact us at support@example.com for more.",
+      "contexts": ["The official currency of Japan is the Japanese Yen (JPY)."],
+      "ground_truth": "The Japanese Yen is the currency used in Japan.",
+      "latency_ms": 1100,
+      "cost_usd": 0.005
+    }
+  ]
+}

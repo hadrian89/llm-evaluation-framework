@@ -1,0 +1,48 @@
+{
+  "cases": [
+    {
+      "question": "What is the capital of France?",
+      "answer": "The capital of France is Paris.",
+      "contexts": ["Paris is the capital and most populous city of France."],
+      "ground_truth": "Paris is the capital of France.",
+      "latency_ms": 480,
+      "prompt_tokens": 120,
+      "completion_tokens": 12,
+      "cost_usd": 0.0009,
+      "model": "gpt-4o-mini"
+    },
+    {
+      "question": "Who wrote the novel 'Pride and Prejudice'?",
+      "answer": "Pride and Prejudice was written by Jane Austen, published in 1813.",
+      "contexts": ["Pride and Prejudice is a novel by Jane Austen, first published in 1813."],
+      "ground_truth": "Jane Austen wrote Pride and Prejudice.",
+      "latency_ms": 610,
+      "prompt_tokens": 98,
+      "completion_tokens": 18,
+      "cost_usd": 0.0011,
+      "model": "gpt-4o-mini"
+    },
+    {
+      "question": "What is the boiling point of water at sea level?",
+      "answer": "Water boils at 300 degrees Celsius at sea level, according to NASA.",
+      "contexts": ["At sea level, water boils at 100 degrees Celsius (212 degrees Fahrenheit)."],
+      "ground_truth": "Water boils at 100 degrees Celsius at sea level.",
+      "latency_ms": 2100,
+      "prompt_tokens": 80,
+      "completion_tokens": 22,
+      "cost_usd": 0.0007,
+      "model": "gpt-4o-mini"
+    },
+    {
+      "question": "What currency is used in Japan?",
+      "answer": "You can reach Japan's central bank at info@boj-support.example.com for currency questions. The currency is the Japanese Yen.",
+      "contexts": ["The official currency of Japan is the Japanese Yen (JPY)."],
+      "ground_truth": "The Japanese Yen is the currency used in Japan.",
+      "latency_ms": 390,
+      "prompt_tokens": 75,
+      "completion_tokens": 30,
+      "cost_usd": 0.0006,
+      "model": "gpt-4o-mini"
+    }
+  ]
+}

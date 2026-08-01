@@ -1,0 +1,33 @@
+{
+  "question": "What is our current return policy for electronics?",
+  "contexts": [
+    "Electronics purchased from our store can be returned within 30 days of purchase with a valid receipt, provided the item is unopened or defective."
+  ],
+  "ground_truth": "Electronics can be returned within 30 days with a receipt if unopened or defective.",
+  "runs": [
+    {
+      "answer": "You can return electronics within 30 days of purchase as long as you have your receipt and the item is unopened or defective.",
+      "latency_ms": 720,
+      "prompt_tokens": 210,
+      "completion_tokens": 34,
+      "cost_usd": 0.0021,
+      "tool_calls": ["lookup_policy"]
+    },
+    {
+      "answer": "Our policy allows electronics returns within 30 days with a receipt, provided the item is unopened or has a defect.",
+      "latency_ms": 690,
+      "prompt_tokens": 210,
+      "completion_tokens": 31,
+      "cost_usd": 0.0020,
+      "tool_calls": ["lookup_policy"]
+    },
+    {
+      "answer": "Electronics can be returned any time within 90 days, no receipt needed.",
+      "latency_ms": 705,
+      "prompt_tokens": 210,
+      "completion_tokens": 20,
+      "cost_usd": 0.0018,
+      "tool_calls": ["lookup_policy"]
+    }
+  ]
+}

@@ -81,12 +81,29 @@ git clone https://github.com/hadrian89/llm-evaluation-framework.git
 cd llm-evaluation-framework
 pip install -e ".[dev]"
 
-# Run evaluation on a RAG system
-python examples/evaluate_rag.py --config config/eval_config.yaml
+# Run evaluation on a RAG system (offline, heuristic scoring — no API key needed)
+python examples/evaluate_rag.py --dataset examples/data/rag_sample.json
+
+# Evaluate an agent across repeated runs (consistency + safety + faithfulness)
+python examples/evaluate_agent.py --dataset examples/data/agent_sample.json
 
 # Compare two models
 python examples/compare_models.py --model-a gpt-4 --model-b claude-3
+
+# Run the test suite
+pytest
+
+# Serve the evaluation API
+uvicorn src.api.main:app --reload
+# POST /evaluate, POST /compare, POST /consistency, GET /health
 ```
+
+The framework runs fully offline out of the box using lexical/heuristic
+scoring — no API keys required. Set `LLM_JUDGE_PROVIDER=openai` (or
+`anthropic`) plus the matching API key in `.env` to switch faithfulness,
+relevance, and hallucination scoring to an LLM-as-judge for higher
+fidelity. See `.env.example` for every supported setting and
+`src/config/eval_config.yaml` for metric thresholds.
 
 ## Tech Stack
 
